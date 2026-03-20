@@ -176,9 +176,9 @@ This is a research prototype running single-threaded Python on toy problems. For
 
 ## Origin
 
-This project emerged from a conversation between a human developer with GA expertise (Peter Boos, [@PGTBoos](https://github.com/PGTBoos)) and Claude (Anthropic) about consciousness, self-awareness, neural network architecture, and whether intelligence requires human-designed structure or can emerge from evolution alone.
+This project emerged from a conversation between a developer with GA expertise (Peter Boos, [@PGTBoos](https://github.com/PGTBoos)) and Claude (Anthropic) about consciousness, and the essence of neural network architectures, and whether intelligence requires human-designed structure or can emerge from evolution alone like nature.
 
-The core insight — that DNA should encode branching tree grammars (Y-splits and inverted-Y merges) rather than flat node/connection graphs — came from thinking about what a "layer" actually means in the context of the XOR problem, and generalizing from there to the idea that decomposition and recomposition are the primitive operations of understanding.
+The core insight — that DNA should encode branching tree grammars (Y-splits and inverted-Y merges) rather than flat node/connection graphs — came from thinking about what a "layer" actually means in the context of the XOR problem, and generalizing from there to the idea that decomposition and recomposition are the primitive operations of understanding it. We could do away with layers and would not even require backprop. This is a first of its kind, in how we do it here, as far as we could research.
 
 ## License
 
