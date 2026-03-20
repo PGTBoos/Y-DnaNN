@@ -1185,7 +1185,7 @@ def _evaluate_worker(chrom: Chromosome, level: int, allow_early_exit: bool) -> f
     complexity = chrom.total_genes() * penalty_factor
 
     if accuracy >= 0.99:
-        accuracy += 0.1
+        accuracy += 0.05  # small bonus, capped below 1.1
 
     return accuracy - complexity
 
@@ -1287,7 +1287,7 @@ class YDNAEvolution:
         complexity = chrom.total_genes() * penalty_factor
 
         if accuracy >= 0.99:
-            accuracy += 0.1
+            accuracy += 0.05  # small bonus, capped below 1.1
 
         return accuracy - complexity
 
@@ -1554,6 +1554,11 @@ class YDNAEvolution:
                                               stagnation=0, level=self.current_level))
             self.population = new_pop
 
+        # Reset all fitness — cached values from previous level are invalid
+        for chrom in self.population:
+            chrom.fitness = 0.0
+            chrom.is_elite = False
+
         self.best_fitness_ever = -999
         self.stagnation = 0
 
@@ -1734,4 +1739,5 @@ if __name__ == "__main__":
     random.seed(42)
     np.random.seed(42)
     # n_workers: 0=auto-detect cores, 1=sequential, N=use N cores
-    engine = run(max_gen_per_level=1000, max_level=20, pop_size=400, n_workers=0)
+    # For harder problems, per problem adjus max_gen_per_level  and pop_size
+    engine = run(max_gen_per_level=1000, max_level=20, pop_size=500, n_workers=0)
