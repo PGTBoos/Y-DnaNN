@@ -35,15 +35,16 @@ The architecture emerges from the problem. The GA discovers what structure the d
 
 - **Cross-tree links**: Nodes can connect to any other node in the tree — siblings, parents, nodes in other input branches. Since there's no backpropagation, there's no mathematical constraint to stay feedforward. The GA evolves lateral and backward connections freely.
 
-- **Addressable memory buffers**: PUSH/RECALL/POP operate on named buffer channels. Multiple branches can write to and read from shared memory. RECALL can access any position (not just the top), enabling random-access temporal memory. This is the functional abstraction of what spiking neural networks achieve biologically.
+- **Addressable memory buffers**: PUSH/RECALL/POP operate on named buffer channels. Multiple branches can write and read from shared memory. RECALL can access any position (not just the top), enabling random-access temporal memory. This is the functional abstraction of what spiking neural networks achieve biologically.
 
-- **Tiered population management**: Elites are protected and cached. Young chromosomes get a grace period after structural mutations. Established non-performers get early-terminated and replaced with fresh random candidates. Wild survivors can mate with elites, grafting novel structures onto proven architectures.
+- **Tiered population management**: Elites are protected and cached. Young chromosomes get a grace period after structural mutations. Established non-performers get early termination and are replaced with fresh random candidates. Wild survivors can mate with elites, grafting novel structures onto proven architectures.
 
 - **No backpropagation**: The entire system — topology, weights, memory structure, cross-links — is evolved by the GA. This means the network can have arbitrary recurrent connections, cycles, and dynamic memory without worrying about gradient computation through complex graphs.
 
 > Before you wonder why this network has such gene nodes with somewhat higher functions.
 > The networks are not layered, and those functions were created in essence to perform somewhat akin to spiking neurons.
-> Normally, a spiking neuron can work together with traditional neurons in a NN, but I wanted to have such functionality.
+> Normally, a spiking neuron cannot work together with traditional neurons in an NN, but I wanted to have such functionality.
+> So I added another way of what spiking neural networks essentially do.
 > It should be able to solve any given problem, which you will see once you run it.
 > v4 was rewritten to be multi-threaded, so far there is no GPU version as i dont depend on backprop of layers here...
 
